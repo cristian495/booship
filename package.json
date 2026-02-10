@@ -1,0 +1,12 @@
+{
+  "name": "booship",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "optimize": "node optimize.js",
+    "build": "node encrypt.js"
+  },
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}

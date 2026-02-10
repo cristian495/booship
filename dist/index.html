@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recuerdos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="lock-screen">
+      <span class="deco" style="top: 18%; left: 12%">✦</span>
+      <span class="deco" style="top: 25%; right: 15%">♡</span>
+      <span class="deco" style="bottom: 22%; left: 20%">✧</span>
+      <span class="deco" style="bottom: 30%; right: 10%">✦</span>
+      <div class="lock-container">
+        <h1>BooSpace</h1>
+        <form id="unlock-form" autocomplete="off">
+          <input
+            type="password"
+            id="passphrase"
+            placeholder="Secret phrase..."
+            autocomplete="off"
+            autofocus
+          />
+          <button type="submit">Unlock</button>
+        </form>
+        <p id="error-msg" class="error" hidden>
+          Wrong phrase. Please try again.
+        </p>
+      </div>
+    </div>
+
+    <div id="memories-screen" hidden>
+      <header>
+        <h1>Together despite the distance</h1>
+      </header>
+
+      <div id="header-intro">
+        <div id="header-photos">
+          <div class="header-photo" id="header-photo-0"></div>
+          <div class="header-photo" id="header-photo-1"></div>
+        </div>
+        <div id="header-text">
+          <p>My boo,</p>
+          <p>It has been four years of distance, with ups and downs that tested us. But they were also years in which love always found a way to win over the hard moments. When we finally met in person, everything was filled with peace, laughter, and a deep certainty that we truly belong together and are meant for each other.</p>
+          <!-- <p>This space exists to remind you how deeply I love you, and that I will always choose you as we continue building our future together.</p> -->
+          <p class="header-note">Note: press play to our playlist :)</p>
+        </div>
+        <iframe
+          style="border-radius: 12px"
+          src="https://open.spotify.com/embed/playlist/6LnmyOYQ5bvHuTGvz53GoN?utm_source=generator&theme=0"
+          width="100%"
+          height="152"
+          frameborder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </div>
+
+      <div id="memories-grid"></div>
+    </div>
+
+    <!-- Templates -->
+    <template id="tpl-photo">
+      <div class="card card-polaroid">
+        <div class="card-photo">
+          <div class="photo-placeholder">Cargando foto...</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title"></div>
+          <div class="card-date"></div>
+          <div class="card-description"></div>
+        </div>
+      </div>
+    </template>
+
+    <template id="tpl-quote">
+      <div class="card card-quote">
+        <span class="deco deco-inline" style="top: 6px; right: 10px">♡</span>
+        <div class="quote-text"></div>
+        <div class="quote-author"></div>
+        <div class="card-date"></div>
+      </div>
+    </template>
+
+    <template id="tpl-group">
+      <div class="card-group">
+        <div class="card-body">
+          <div class="card-title"></div>
+          <div class="card-date"></div>
+          <div class="card-description"></div>
+        </div>
+        <div class="group-stack"></div>
+      </div>
+    </template>
+
+    <template id="tpl-memory">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title"></div>
+          <div class="card-date"></div>
+          <div class="card-description"></div>
+        </div>
+      </div>
+    </template>
+
+    <template id="tpl-message">
+      <div class="card card-message">
+        <div class="message-text"></div>
+        <div class="card-date"></div>
+        <span
+          class="deco deco-inline"
+          style="
+            bottom: 6px;
+            right: 10px;
+            font-family: &quot;Great Vibes&quot;, cursive;
+          "
+          >xoxo</span
+        >
+      </div>
+    </template>
+
+    <template id="tpl-video">
+      <div class="card card-polaroid">
+        <div class="card-video">
+          <div class="photo-placeholder">Cargando video...</div>
+        </div>
+        <div class="card-body">
+          <div class="card-title"></div>
+          <div class="card-date"></div>
+          <div class="card-description"></div>
+        </div>
+      </div>
+    </template>
+
+    <template id="tpl-video-group">
+      <div class="card card-video-group">
+        <div class="card-body">
+          <div class="card-title"></div>
+          <div class="card-date"></div>
+          <div class="card-description"></div>
+        </div>
+        <div class="video-group-list"></div>
+      </div>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
