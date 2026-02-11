@@ -81,6 +81,11 @@
       card.querySelector(".card-date").textContent = formatDate(memory.date);
       card.querySelector(".card-description").textContent =
         memory.description || "";
+
+      if (!memory.title && !memory.description) {
+        card.classList.add("card-no-text");
+      }
+
       if (memory._groupPhotos && memory._groupPhotos.length > 0) {
         const stack = card.querySelector(".group-stack");
         const hint = document.createElement("div");
@@ -134,12 +139,17 @@
       card.querySelector(".card-date").textContent = formatDate(memory.date);
       card.querySelector(".card-description").textContent =
         memory.description || "";
+
+      if (!memory.title && !memory.description) {
+        card.classList.add("card-no-text");
+      }
       if (memory._groupMedia && memory._groupMedia.length > 0) {
         const list = card.querySelector(".video-group-list");
         memory._groupMedia.forEach((gm) => {
           const placeholder = document.createElement("div");
           placeholder.className = "photo-placeholder";
-          placeholder.textContent = gm.kind === "video" ? "Cargando video..." : "Cargando foto...";
+          placeholder.textContent =
+            gm.kind === "video" ? "Cargando video..." : "Cargando foto...";
           placeholder.id = `mgroup-${Math.random().toString(36).slice(2)}`;
           placeholder.dataset.kind = gm.kind;
           list.appendChild(placeholder);
@@ -156,6 +166,11 @@
       card.querySelector(".card-description").textContent =
         memory.description || "";
       addTilt(card);
+
+      if (!memory.title && !memory.description) {
+        card.classList.add("card-no-text");
+      }
+
       if (memory.video) {
         const placeholder = card.querySelector(".photo-placeholder");
         const videoId = `video-${Math.random().toString(36).slice(2)}`;
@@ -198,6 +213,10 @@
       card.querySelector(".card-date").textContent = formatDate(memory.date);
       card.querySelector(".card-description").textContent =
         memory.description || "";
+
+      if (!memory.title && !memory.description) {
+        card.classList.add("card-no-text");
+      }
       if (memory.layout === "wide") card.classList.add("card-wide");
       if (memory.layout === "heart") {
         card.classList.add("card-heart");
@@ -287,7 +306,8 @@
         const img = document.createElement("img");
         img.src = url;
         img.alt = memory.title || "Foto";
-        if (placeholder.dataset.fit) img.style.objectFit = placeholder.dataset.fit;
+        if (placeholder.dataset.fit)
+          img.style.objectFit = placeholder.dataset.fit;
         placeholder.replaceWith(img);
       }
     } catch {
@@ -388,7 +408,8 @@
                 if (placeholder) {
                   const img = document.createElement("img");
                   img.src = url;
-                  if (placeholder.dataset.fit) img.style.objectFit = placeholder.dataset.fit;
+                  if (placeholder.dataset.fit)
+                    img.style.objectFit = placeholder.dataset.fit;
                   placeholder.replaceWith(img);
                 }
               } catch {

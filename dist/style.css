@@ -203,6 +203,10 @@ body {
   transition: transform 0.3s;
 }
 
+.card-no-text .card-body {
+  display: none;
+}
+
 /* Polaroid style for photo cards */
 .card-polaroid {
   width: 100%;
@@ -283,6 +287,7 @@ body {
   font-size: 0.8rem;
   color: #7a6a5a;
   line-height: 1.5;
+  padding: 0 15px;
 }
 
 /* Wide variant — stretches to container */
@@ -308,11 +313,10 @@ body {
 }
 
 .card-heart .card-photo img {
-  width: 450px;
-  height: 450px;
-  clip-path: path(
-    "M225 405 C90 315 0 225 0 135 C0 45 67.5 0 123.75 0 C168.75 0 202.5 33.75 225 67.5 C247.5 33.75 281.25 0 326.25 0 C382.5 0 450 45 450 135 C450 225 360 315 225 405Z"
-  );
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 1;
+  clip-path: url(#heart-clip);
   object-fit: cover;
   object-position: center 20%;
 }
@@ -408,7 +412,9 @@ body {
   padding: 0.5rem 0.5rem 0;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.13);
   border-radius: 2px;
-  transition: transform 0.4s, z-index 0s;
+  transition:
+    transform 0.4s,
+    z-index 0s;
 }
 
 .group-polaroid img {
@@ -422,10 +428,22 @@ body {
   height: 1.8rem;
 }
 
-.group-stack .group-polaroid:nth-child(1) { transform: rotate(-4deg) translate(5%, 5%); z-index: 1; }
-.group-stack .group-polaroid:nth-child(2) { transform: rotate(3deg) translate(10%, 2%); z-index: 2; }
-.group-stack .group-polaroid:nth-child(3) { transform: rotate(-1deg) translate(8%, 8%); z-index: 3; }
-.group-stack .group-polaroid.on-top { z-index: 10; transform: rotate(0deg) translate(8%, 3%); }
+.group-stack .group-polaroid:nth-child(1) {
+  transform: rotate(-4deg) translate(5%, 5%);
+  z-index: 1;
+}
+.group-stack .group-polaroid:nth-child(2) {
+  transform: rotate(3deg) translate(10%, 2%);
+  z-index: 2;
+}
+.group-stack .group-polaroid:nth-child(3) {
+  transform: rotate(-1deg) translate(8%, 8%);
+  z-index: 3;
+}
+.group-stack .group-polaroid.on-top {
+  z-index: 10;
+  transform: rotate(0deg) translate(8%, 3%);
+}
 
 .group-hint {
   font-size: 0.75rem;
